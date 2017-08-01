@@ -4,11 +4,14 @@ import { NgModule }             from '@angular/core';
 
 import { AppComponent }         from '../components/app.component';
 
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+
 
 @NgModule({
     imports: [
         BrowserModule,
-        FormsModule
+        FormsModule,
+        ButtonsModule
     ],
     declarations: [
         AppComponent,

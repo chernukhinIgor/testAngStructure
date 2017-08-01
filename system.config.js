@@ -21,6 +21,12 @@
             '@angular/http': 'app/js/@angular/http/bundles/http.umd.js',
             '@angular/router': 'app/js/@angular/router/bundles/router.umd.js',
             '@angular/forms': 'app/js/@angular/forms/bundles/forms.umd.js',
+
+            '@progress/kendo-angular-buttons': 'app/js/kendo/kendo-angular-buttons/dist/cdn/js/kendo-angular-buttons.js',
+            '@progress/kendo-angular-l10n': 'app/js/kendo/kendo-angular-l10n/dist/cdn/js/kendo-angular-l10n.js',
+            '@progress/kendo-angular-popup': 'app/js/kendo/kendo-angular-popup/dist/cdn/js/kendo-angular-popup.js',
+            '@progress/kendo-popup-common': 'app/js/kendo/kendo-popup-common/dist/cdn/js/kendo-popup-common.js',
+
             // other libraries
             'rxjs':                       'app/js/rxjs'
             // 'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',

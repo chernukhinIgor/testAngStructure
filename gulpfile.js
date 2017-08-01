@@ -9,7 +9,9 @@ var ts              = require('gulp-typescript');
 var imagemin        = require('gulp-imagemin');
 var browserSync     = require('browser-sync').create();
 var del             = require('del');
-var modRewrite = require('connect-modrewrite');
+var modRewrite = require('connect-modrewrite'),
+ csscomb = require('gulp-csscomb'),
+ concat = require('gulp-concat');
 
 var paths = {
     views: 'app/*.html',
@@ -19,6 +21,8 @@ var paths = {
     pictures: 'app/pic/**/*',
     php: 'app/php/**/*',
     rxjs: 'node_modules/rxjs/**/*.js',
+    kendo: 'node_modules/@progress/**/*.js',
+    kendocss: 'node_modules/@progress/kendo-theme-default/scss/**/*.scss',
     angular: [
         {
             from: 'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
@@ -114,6 +118,18 @@ gulp.task('styles', function () {
         .pipe(browserSync.stream());
 });
 
+gulp.task('kendocss', function () {
+    return gulp.src('node_modules/@progress/kendo-theme-default/scss/all.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
+        .pipe(csscomb())
+        .pipe(concat('all.min.css'))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('dist/app/css'))
+        .pipe(browserSync.stream());
+});
+
 gulp.task('angular', function () {
     for( var i = 0; i < paths.angular.length; i++ ){
         gulp.src( paths.angular[ i ].from)
@@ -169,6 +185,11 @@ gulp.task('rxjs', function() {
         .pipe(gulp.dest('dist/app/js/rxjs'));
 });
 
+gulp.task('kendo', function() {
+    return gulp.src(paths.kendo)
+        .pipe(gulp.dest('dist/app/js/kendo'));
+});
+
 gulp.task('php', function() {
     return gulp.src(paths.php)
         .pipe(gulp.dest('dist/app/php'));
@@ -181,7 +202,7 @@ gulp.task('fonts', function () {
 });
 
 function serve() {
-    return run( 'styles',  'templates', 'ts','rxjs','angular', 'cssVendors', 'jsVendors', 'images', 'pictures', 'views', 'php', 'fonts', 'serve');
+    return run( 'styles', 'kendocss',  'templates', 'ts','rxjs', 'kendo', 'angular', 'cssVendors', 'jsVendors', 'images', 'pictures', 'views', 'php', 'fonts', 'serve');
 }
 
 gulp.task('default', ['clean'], serve());

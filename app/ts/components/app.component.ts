@@ -5,4 +5,9 @@ import { Component }       from '@angular/core';
     templateUrl: 'app/templates/app.component.html',
     styleUrls: [ 'app/css/app.component.css' ]
 })
-export class AppComponent {}
+export class AppComponent {
+
+    onButtonClick () {
+        console.log('aaaaaaaa');
+    }
+}
