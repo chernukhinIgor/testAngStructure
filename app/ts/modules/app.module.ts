@@ -1,11 +1,13 @@
 //module
-import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaskedTextBoxModule, NumericTextBoxModule } from '@progress/kendo-angular-inputs';
-import { BrowserModule } from '@angular/platform-browser';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LayoutModule } from '@progress/kendo-angular-layout';
+import { PopupModule } from '@progress/kendo-angular-popup';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 
@@ -31,9 +33,11 @@ const appRoutes: Routes = [
         BrowserAnimationsModule,
         NumericTextBoxModule,
         MaskedTextBoxModule,
+        DateInputsModule,
         ButtonsModule,
         InputsModule,
         LayoutModule,
+        PopupModule,
         FormsModule
     ],
     declarations: [

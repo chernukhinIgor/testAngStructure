@@ -1,60 +1,85 @@
-<div class="row example-wrapper">
-    <div class="col-xs-12 col-sm-6 offset-sm-3 example-col">
-        <div class="card">
-            <div class="card-block">
-                <form class="k-form">
-                    <fieldset>
-                        <legend>User Details</legend>
-
-                        <label class="k-form-field">
-                            <span>First Name</span>
-                            <input class="k-textbox" placeholder="Your Name" />
-                        </label>
-                        <label class="k-form-field">
-                            <span>Last Name</span>
-                            <input class="k-textbox" value="Batista" placeholder="Your Last Name" />
-                        </label>
-                        <div class="k-form-field">
-                            <span>Gender</span>
-
-                            <input type="radio" name="gender" id="female" class="k-radio">
-                            <label class="k-radio-label" for="female">Female</label>
-
-                            <input type="radio" name="gender" id="male" class="k-radio" checked="checked">
-                            <label class="k-radio-label" for="male">Male</label>
-                        </div>
-                        <label class="k-form-field">
-                            <span>Email <span class="k-required">*</span></span>
-                            <input type="email" class="k-textbox" value="bernardo.batista@progress.com" placeholder="Your Email" />
-                        </label>
-                        <label class="k-form-field">
-                            <span>Company<span class="k-field-info">optional</span></span>
-                            <input class="k-textbox" placeholder="Your Company" />
-                        </label>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Credentials</legend>
-                        <label class="k-form-field">
-                            <span>Username</span>
-                            <input class="k-textbox" value="bbatista" placeholder="Your username" />
-                        </label>
-                        <label class="k-form-field">
-                            <span>Password</span>
-                            <input type="password" class="k-textbox" value="123456" placeholder="Your password"/>
-                        </label>
-                        <label class="k-form-field">
-                            <input type="checkbox" id="auth-2fa" class="k-checkbox" checked="checked">
-                            <label class="k-checkbox-label" for="auth-2fa">Enable two-factor authentication</label>
-                        </label>
-                    </fieldset>
-
-                    <div class="text-right">
-                      <button class="k-button">Cancel</button>
-                      <button class="k-button k-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
+    <div class="card">
+        <div class="col-xs-8">
+            <input class="k-textbox" style="width: 100%;" placeholder="Your Name" />
+        </div>
+        <div class="col-xs-4">
+            <button #anchor (click)="onToggle()" class="k-button">Действующие</button>
         </div>
     </div>
-</div>
+    <kendo-popup [anchor]="anchor" [popupClass]="'content popup'" *ngIf="show">
+        <div class="card-block">
+            <form class="k-form">
+                <fieldset>
+                    <legend>Клиенты</legend>
+                    <kendo-buttongroup [selection]="'single'">
+                        <button kendoButton [togglable]="true">
+                                Мои
+                            </button>
+                        <button kendoButton [togglable]="true">
+                                Подчиненных
+                            </button>
+                        <button kendoButton [togglable]="true">
+                                Все
+                            </button>
+                    </kendo-buttongroup>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Статус</legend>
+                    <kendo-buttongroup>
+                        <button kendoButton [togglable]="true">
+                                Индивидуальный предприниматель
+                            </button>
+                        <button kendoButton [togglable]="true">
+                                Юридическое лицо
+                            </button>
+                        <button kendoButton [togglable]="true">
+                                Холдинг
+                            </button>
+                        <button kendoButton [togglable]="true">
+                                Финансовая группа
+                            </button>
+                    </kendo-buttongroup>
+                </fieldset>
+                <fieldset>
+                    <legend></legend>
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <label class="k-form-field">
+                            <span>Ответственный</span>
+                            <input class="k-textbox" placeholder="Ответственный" />
+                        </label>
+                        </div>
+                        <div class="col-xs-5">
+                            <label class="k-form-field">
+                                <span>Член рабочей группы</span>
+                                <input class="k-textbox" placeholder="Член рабочей группы" />
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <label class="k-form-field">
+                            <span>Регистрация с</span>
+                            <kendo-datepicker ></kendo-datepicker>
+                        </label>
+                        </div>
+                        <div class="col-xs-5">
+                            <label class="k-form-field">
+                            <span>Регистрация до</span>
+                            <kendo-datepicker ></kendo-datepicker>
+                        </label>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <div class="text-right">
+                    <button class="k-button">Cancel</button>
+                    <button class="k-button k-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </kendo-popup>

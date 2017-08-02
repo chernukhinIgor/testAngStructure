@@ -32,6 +32,8 @@
             '@progress/kendo-angular-layout': 'app/js/kendo/kendo-angular-layout/dist/cdn/js/kendo-angular-layout.js',
             '@progress/kendo-angular-intl': 'app/js/kendo/kendo-angular-intl/dist/cdn/js/kendo-angular-intl.js',
             '@progress/kendo-angular-inputs': 'app/js/kendo/kendo-angular-inputs/dist/cdn/js/kendo-angular-inputs.js',
+            '@progress/kendo-angular-popup': 'app/js/kendo/kendo-angular-popup/dist/cdn/js/kendo-angular-popup.js',
+            '@progress/kendo-angular-dateinputs': 'app/js/kendo/kendo-angular-dateinputs/dist/cdn/js/kendo-angular-dateinputs.js',
 
 
             // other libraries

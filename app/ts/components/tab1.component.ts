@@ -6,5 +6,11 @@ import { Component }       from '@angular/core';
     styleUrls: [ 'app/css/tab1.component.css' ]
 })
 export class Tab1Component {
+    private toggleText: string = "Show";
+    private show: boolean = false;
 
+    public onToggle(): void {
+        this.show = !this.show;
+        this.toggleText = this.show ? "Hide" : "Show";
+    }
 }
