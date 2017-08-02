@@ -16,45 +16,62 @@ var gulp            = require('gulp'),
 var paths = {
     views: 'app/*.html',
     styles: 'app/sass/**/*.scss',
-    templates: 'app/templates/*.html',
+    templates: 'app/templates/**/*.html',
     images: 'app/img/**/*',
     pictures: 'app/pic/**/*',
     php: 'app/php/**/*',
-    rxjs: 'node_modules/rxjs/**/*.js',
+    rxjs: 'node_modules/rxjs/**/*.js*',
     kendo: 'node_modules/@progress/**/*.js',
     kendocss: 'node_modules/@progress/kendo-theme-default/scss/**/*.scss',
     angular: [
         {
-            from: 'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+            from: 'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.min.*',
             to: 'dist/app/js/@angular/platform-browser-dynamic/bundles/'
         },
         {
-            from: 'node_modules/@angular/compiler/bundles/compiler.umd.js',
-            to: 'dist/app/js/@angular/compiler/bundles/'
-        },
-        {
-            from: 'node_modules/@angular/core/bundles/core.umd.js',
-            to: 'dist/app/js/@angular/core/bundles/'
-        },
-        {
-            from: 'node_modules/@angular/platform-browser/bundles/platform-browser.umd.js',
+            from: 'node_modules/@angular/platform-browser/bundles/platform-browser-animations.umd.min.*',
             to: 'dist/app/js/@angular/platform-browser/bundles/'
         },
         {
-            from: 'node_modules/@angular/common/bundles/common.umd.js',
+            from: 'node_modules/@angular/animations/bundles/animations.umd.*',
+            to: 'dist/app/js/@angular/animations/bundles/'
+        },
+        {
+            from: 'node_modules/@angular/animations/bundles/animations-browser.umd.*',
+            to: 'dist/app/js/@angular/animations/bundles/'
+        },
+        {
+            from: 'node_modules/@angular/compiler/bundles/compiler.umd.min.*',
+            to: 'dist/app/js/@angular/compiler/bundles/'
+        },
+        {
+            from: 'node_modules/@angular/core/bundles/core.umd.min.*',
+            to: 'dist/app/js/@angular/core/bundles/'
+        },
+        {
+            from: 'node_modules/@angular/platform-browser/bundles/platform-browser.umd.min.*',
+            to: 'dist/app/js/@angular/platform-browser/bundles/'
+        },
+        {
+            from: 'node_modules/@angular/common/bundles/common.umd.min.*',
             to: 'dist/app/js/@angular/common/bundles/'
         },
         {
-            from: 'node_modules/@angular/forms/bundles/forms.umd.js',
+            from: 'node_modules/@angular/forms/bundles/forms.umd.min.*',
             to: 'dist/app/js/@angular/forms/bundles/'
         },
         {
-            from: 'node_modules/@angular/router/bundles/router.umd.js',
+            from: 'node_modules/@angular/router/bundles/router.umd.min.*',
             to: 'dist/app/js/@angular/router/bundles/'
         },
         {
-            from: 'node_modules/@angular/http/bundles/http.umd.js',
+            from: 'node_modules/@angular/http/bundles/http.umd.min.*',
             to: 'dist/app/js/@angular/http/bundles/'
+        },
+
+        {
+            from: 'node_modules/tslib/tslib.js',
+            to: 'dist/app/js/tslib/'
         }
     ],
     jsVendors: [
