@@ -1,17 +1,17 @@
 'use strict';
 
-var gulp            = require('gulp');
-var run             = require('run-sequence');
-var sass            = require('gulp-sass');
-var autoprefixer    = require('gulp-autoprefixer');
-var sourcemaps      = require('gulp-sourcemaps');
-var ts              = require('gulp-typescript');
-var imagemin        = require('gulp-imagemin');
-var browserSync     = require('browser-sync').create();
-var del             = require('del');
-var modRewrite = require('connect-modrewrite'),
- csscomb = require('gulp-csscomb'),
- concat = require('gulp-concat');
+var gulp            = require('gulp'),
+    run             = require('run-sequence'),
+    sass            = require('gulp-sass'),
+    autoprefixer    = require('gulp-autoprefixer'),
+    sourcemaps      = require('gulp-sourcemaps'),
+    ts              = require('gulp-typescript'),
+    imagemin        = require('gulp-imagemin'),
+    browserSync     = require('browser-sync').create(),
+    del             = require('del'),
+    modRewrite      = require('connect-modrewrite'),
+    csscomb         = require('gulp-csscomb'),
+    concat          = require('gulp-concat');
 
 var paths = {
     views: 'app/*.html',
